@@ -24,7 +24,7 @@
   "dependencies": {
     "csv-parse": "^5.3.1",
     "nukta-remover": "^0.0.1",
-    "regex-val-gen": "^0.0.1"
+    "regex-val-gen": "^0.0.2"
   },
   "devDependencies": {
     "mocha": "^10.1.0"
