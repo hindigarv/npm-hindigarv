@@ -1,14 +1,22 @@
 import {} from "nukta-remover"
 import {readCsv} from "./csv-reader.js";
+import {generateValuesFromRegex} from "regex-val-gen";
 
 const words = await readCsv()
+
+function getRoops(word) {
+    let roops = word.roops;
+    roops.push(word.shabda)
+    generateValuesFromRegex(word.regex).forEach(v => roops.push(v))
+    return [...new Set(roops)]
+}
+
 const shabdakosha = words
     .filter(w => w != null)
     .reduce((acc, word) => {
-        acc[word.shabda] = word;
+        getRoops(word).forEach(roop => acc[roop] = word)
         return acc;
     }, {})
-// TODO add the roops and regex generated values to the keys in shabdakosha
 
 const find = (str) => {
     return str.split(" ")

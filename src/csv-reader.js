@@ -6,11 +6,12 @@ const toWord = (row) => {
     const shabda = row[0].trim().removeNukta();
     const mool = row[1].trim();
     const paryaya = row[2].trim();
-    const roop = row[4].trim().removeNukta().split(",")
     if ("शब्द" === shabda || shabda === "" || mool === "" || paryaya === "") {
         return null;
     }
-    return new Word(shabda, mool, paryaya);
+    const roops = row[4].removeNukta().split(",").map(r => r.trim());
+    const regex = row[5].trim();
+    return new Word(shabda, mool, paryaya, roops, regex);
 }
 
 export const readCsv = () => {
