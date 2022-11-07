@@ -1,1 +1,7 @@
-# npm-hindigarv
+# hindigarv
+
+## How to use
+
+```javascript
+
+```
